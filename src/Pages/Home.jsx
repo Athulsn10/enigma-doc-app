@@ -5,27 +5,28 @@ import Button from "@mui/material/Button";
 import Avatar from "@mui/joy/Avatar";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import {
-  collection,
-  getDocs,
-  addDoc,
-  doc,
-  deleteDoc,
-  updateDoc,
-} from "firebase/firestore";
+import {collection,getDocs, addDoc, doc,deleteDoc,updateDoc} from "firebase/firestore";
 import { db } from "../firebasesdk.js";
+import Snackbar from '@mui/material/Snackbar';
+
 
 function Home() {
+
+  const [open, setOpen] = useState(false);
   const [newEnigma, setNewEnigma] = useState("");
   const [show, setShow] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
   const [editedContent, setEditedContent] = useState("");
+
+
   const handleClose = () => {
     setShow(false);
+    setOpen(false);
     setEditMode(false);
     setSelectedPost(null);
     setEditedContent("");
+    setNewEnigma("")
   };
   const handleShow = () => setShow(true);
   const [posts, setPosts] = useState([]);
@@ -45,7 +46,11 @@ function Home() {
   useEffect(() => {
     getPosts();
   }, []);
-
+  
+  const handleClick = () => {
+    setOpen(true);
+  };
+  
   const createPost = async () => {
     const timestamp = new Date().getTime(); 
     if (!editMode) {
@@ -58,6 +63,7 @@ function Home() {
     }
     handleClose();
     getPosts();
+    handleClick();
   };
 
   const deletePost = async (id) => {
@@ -86,6 +92,12 @@ function Home() {
 
   return (
     <>
+    <Snackbar
+     open={open}
+     onClose={() => setOpen(false)}
+     message="Thought Posted"
+     variant="soft"
+      />
       <div className="d-flex justify-content-center pt-5">
         <div className="mt-5 d-flex pt-3">
           <Avatar variant="plain" alt="Remy Sharp" src="./user.png" />

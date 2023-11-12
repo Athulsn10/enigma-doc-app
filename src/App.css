@@ -4,7 +4,7 @@
 }
 
 #dark{
-  background-color: black;
+  background-color: rgb(24, 23, 23);
   color: white;
 }
 
@@ -12,6 +12,7 @@
   background-color: white;
   border-radius: 10px;
 }
+
 #dark .nvbr{
   background-color: rgb(0, 0, 0);
   border-radius: 10px;
