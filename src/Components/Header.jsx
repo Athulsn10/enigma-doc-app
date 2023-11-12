@@ -18,7 +18,7 @@ function Header() {
   
 
   return (
-    <Navbar className='mx-5 pt-2 nvbr shadow-sm' style={{ border: 'none' }}>
+    <Navbar fixed='top' className='mx-5 pb-2 nvbr shadow-sm' style={{ border: 'none' }}>
     <div className='d-flex align-items-center mt-3 container-fluid'>
       <div className='ms-1'><img className='logo' src="./logo.png" width={50} alt="" /></div>
       <Nav className="collapse navbar-collapse">

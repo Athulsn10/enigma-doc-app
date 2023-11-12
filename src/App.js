@@ -16,7 +16,6 @@ function App() {
    <ThemeContext.Provider value={{ theme, toggleTheme }}>
    <div id={theme}>
      <Header/>
-     
      <Routes>
       <Route path="/" element={<Home/>}/>
      </Routes>
