@@ -1,9 +1,11 @@
 #light {
   background-color: white;
+  color: black;
 }
 
 #dark{
   background-color: black;
+  color: white;
 }
 
 #light .nvbr{
@@ -31,6 +33,6 @@
 #light .txt{
   color: black !important;
 }
-#dark .txt{
+#dark .txt {
   color: rgb(255, 255, 255) !important;
 }
