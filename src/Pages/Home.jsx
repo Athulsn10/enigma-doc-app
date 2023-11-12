@@ -35,7 +35,7 @@ function Home() {
     setNewEnigma(content);
   };
 
-  const getPosts = async () => {
+    const getPosts = async () => {
     const post = await getDocs(collection(db, "post"));
     const data = post.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
     data.sort((a, b) => b.createdAt - a.createdAt);
